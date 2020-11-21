@@ -1,0 +1,33 @@
+{
+  "name": "e-commerce-backend",
+  "version": "1.0.0",
+  "description": "Backend de un ecommerce para el master",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devfmx/e-commerce-backend.git"
+  },
+  "author": "Dev.f",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devfmx/e-commerce-backend/issues"
+  },
+  "homepage": "https://github.com/devfmx/e-commerce-backend#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "celebrate": "^9.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.15"
+  },
+  "devDependencies": {
+    "eslint": "^7.9.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0"
+  }
+}
