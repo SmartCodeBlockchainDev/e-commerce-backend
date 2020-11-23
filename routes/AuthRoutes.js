@@ -8,6 +8,6 @@ const { AuthServices } = require('../services');
 const asyncError = require('../errors/asyncError');
 
 router.post('/signup', [AuthValidator.signup], UserController.create(AuthServices, asyncError));
-router.post('/login', [AuthValidator.createParentValidator], UserController.login(AuthServices, asyncError));
+router.post('/login', [AuthValidator.login], UserController.login(AuthServices, asyncError));
 
 module.exports = router;
