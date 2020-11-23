@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const { errors } = require('celebrate');
+
 const config = require('../config');
 const BackendError = require('../errors/BackendError');
 const errorMiddleware = require('../errors/errorMiddleware');
