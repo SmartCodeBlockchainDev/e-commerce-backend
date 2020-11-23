@@ -1,12 +1,14 @@
 const express = require('express');
 
 const router = express.Router();
-const permit = require('../utils/permit');
+
 const { UserMiddleware } = require('../middlewares');
 const { UserValidator } = require('../validators');
 const { UserController } = require('../controllers');
 const { UserService } = require('../services');
+
 const asyncError = require('../errors/asyncError');
+const permit = require('../utils/permission');
 
 router.get('/user', UserController.find(UserService, asyncError));
 router.get('/user/me', permit('ADMIN', 'CUSTOMER'), UserController.me(UserService, asyncError));
