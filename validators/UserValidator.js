@@ -1,7 +1,7 @@
 const { celebrate, Joi } = require('celebrate');
 
 module.exports = {
-  create: celebrate({
+  update: celebrate({
     body: Joi.object().keys({
       name: Joi.string().required(),
       age: Joi.number().integer(),

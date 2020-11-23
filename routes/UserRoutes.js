@@ -13,6 +13,6 @@ const permit = require('../utils/permission');
 router.get('/user', UserController.find(UserService, asyncError));
 router.get('/user/me', permit('ADMIN', 'CUSTOMER'), UserController.me(UserService, asyncError));
 router.get('/user/:idUser', permit('ADMIN', 'CUSTOMER'), [UserMiddleware.isUserById(UserService)], UserController.findById());
-router.patch('/user/:idUser', permit('ADMIN', 'CUSTOMER'), [UserValidator.updateParentValidator, UserMiddleware.isUserById(UserService)], UserController.update(UserService, asyncError));
+router.patch('/user/:idUser', permit('ADMIN', 'CUSTOMER'), [UserValidator.update, UserMiddleware.isUserById(UserService)], UserController.update(UserService, asyncError));
 
 module.exports = router;
