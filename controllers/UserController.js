@@ -1,3 +1,4 @@
+
 module.exports = {
   create: (service, asyncError) => asyncError(async (req, res) => {
     const newUser = await service.create(req.body);
