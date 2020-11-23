@@ -6,7 +6,7 @@ const router = express.Router();
 router.use(require('./UserRoutes'));
 
 // Items
-router.use(require('./ItemsRoutes'));
+// router.use(require('./ItemsRoutes'));
 
 
 module.exports = router;
