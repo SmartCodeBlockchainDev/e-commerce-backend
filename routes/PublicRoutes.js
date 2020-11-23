@@ -1,7 +1,7 @@
 const express = require('express');
 const { ItemService } = require('../services');
 const { ItemController } = require('../controllers')
-const asynError = require('../errors/asynError');
+const asyncError = require('../errors/asyncError');
 
 
 const router = express.Router();
@@ -9,8 +9,8 @@ const router = express.Router();
 // Auth
 router.use(require('./AuthRoutes'));
 
-router.get('/items',[], ItemController.fetchItems(ItemService,asynError))
-router.get('/items',[], ItemController.retriveItem(ItemService,asynError))
+router.get('/items',[], ItemController.fetchItems(ItemService, asyncError))
+router.get('/items',[], ItemController.retriveItem(ItemService, asyncError))
 
 
 module.exports = router;
