@@ -6,12 +6,12 @@ const env = process.env.NODE_ENV || 'development'; // 'dev' or 'test' or 'produc
 const SECRET_KEY = process.env.SECRET_KEY || 'clavesecretaparajwt';
 
 const development = {
-  mongoURI: `mongodb+srv://masterincoding.varwq.mongodb.net/ecommerce?retryWrites=true&w=majority`,
+  mongoURI: `mongodb+srv://${process.env.ATLAS_USER}:${process.env.ATLAS_PASSWORD}@masterincoding.varwq.mongodb.net/ecommerce?retryWrites=true&w=majority`,
   SECRET_KEY,
 };
 
 const production = {
-  mongoURI: `mongodb+srv://masterincoding.varwq.mongodb.net/ecommerce?retryWrites=true&w=majority`,
+  mongoURI: `mongodb+srv://${process.env.ATLAS_USER}:${process.env.ATLAS_PASSWORD}@masterincoding.varwq.mongodb.net/ecommerce?retryWrites=true&w=majority`,
   SECRET_KEY,
 };
 

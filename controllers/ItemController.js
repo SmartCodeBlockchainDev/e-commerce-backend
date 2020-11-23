@@ -11,6 +11,5 @@ module.exports = {
         const item = await service.getItemById(req.params.id);
         return res.status(200).json(item);
     }), 
-
   };
   
