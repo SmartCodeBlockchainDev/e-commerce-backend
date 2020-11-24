@@ -9,7 +9,7 @@ module.exports = {
       email: Joi.string().required(),
       password: Joi.string().required(),
       birth_date: Joi.date(),
-      gender: Joi.string().valid(ENUM_GENDER).required(),
+      gender: Joi.string().valid(ENUM_GENDER),
     }),
   }),
   login: celebrate({
