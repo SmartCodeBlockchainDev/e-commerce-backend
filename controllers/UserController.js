@@ -34,7 +34,11 @@ module.exports = {
     return next(new BackendError('No hay usuarios', 404));
   }),
 
-  findById: () => (req, res) => res.status(200).json(req.user),
+  findById: () => (req, res) => {
+    const user = req.user.toObject();
+    delete user.password;
+    res.status(200).json(user);
+  },
 
   update: (service, asyncError) => asyncError(async (req, res) => {
     const userUpdated = await (
