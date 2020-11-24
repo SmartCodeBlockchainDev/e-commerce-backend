@@ -20,8 +20,16 @@ module.exports = {
 
   find: (service, asyncError, BackendError) => asyncError(async (req, res, next) => {
     const users = await service.find();
-    if (users) {
-      return res.status(200).send({ users });
+    if (users && users.length && users.length > 0) {
+      const usersWithoutPassword = users.map(user => {
+        const cleanUser = user;
+        cleanUser.password = undefined;
+        cleanUser.createdAt = undefined;
+        cleanUser.updatedAt = undefined;
+        return cleanUser;
+      })
+
+      return res.status(200).send(usersWithoutPassword);
     }
     return next(new BackendError('No hay usuarios', 404));
   }),
