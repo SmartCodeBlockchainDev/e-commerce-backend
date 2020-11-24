@@ -36,6 +36,7 @@ db.on('error', console.error.bind(console, 'mongo connection error:'));
 app.use(express.urlencoded({
     extended: true,
 }));
+console.log(mongoURI)
 app.use(express.json({ limit: '5mb' }));
 
 // app.use(cors(corsOptions));
