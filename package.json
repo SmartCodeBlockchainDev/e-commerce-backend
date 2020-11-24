@@ -27,7 +27,8 @@
     "express": "^4.17.1",
     "faker": "^5.1.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.15"
+    "mongoose": "^5.10.15",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "eslint": "^7.9.0",
