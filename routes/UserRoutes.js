@@ -1,16 +1,18 @@
 const express = require('express');
 
 const router = express.Router();
-//const permit = require('../utils/permit');
+
 const { UserMiddleware } = require('../middlewares');
 const { UserValidator } = require('../validators');
 const { UserController } = require('../controllers');
 const { UserService } = require('../services');
-// const asynError = require('../errors/asyncErrors');
 
-// router.get('/user', UserController.find(UserService, asynError));
-// router.get('/user/me', permit('ADMIN', 'CUSTOMER'), UserController.me(UserService, asynError));
-// router.get('/user/:idUser', permit('ADMIN', 'CUSTOMER'), [UserMiddleware.isUserById(UserService)], UserController.findById());
-// router.patch('/user/:idUser', permit('ADMIN', 'CUSTOMER'), [UserValidator.updateParentValidator, UserMiddleware.isUserById(UserService)], UserController.update(UserService, asynError));
+const asyncError = require('../errors/asyncError');
+const permit = require('../utils/permission');
+
+router.get('/user', UserController.find(UserService, asyncError));
+router.get('/user/me', permit('ADMIN', 'CUSTOMER'), UserController.me(UserService, asyncError));
+router.get('/user/:idUser', permit('ADMIN', 'CUSTOMER'), [UserMiddleware.isUserById(UserService)], UserController.findById());
+router.patch('/user/:idUser', permit('ADMIN', 'CUSTOMER'), [UserValidator.update, UserMiddleware.isUserById(UserService)], UserController.update(UserService, asyncError));
 
 module.exports = router;

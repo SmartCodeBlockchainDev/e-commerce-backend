@@ -2,11 +2,12 @@ const express = require('express');
 
 const router = express.Router();
 const { AuthValidator } = require('../validators');
-const { AuthController } = require('../controllers');
-const { AuthServices } = require('../services');
-const asynError = require('../errors/asynError');
+const { UserController } = require('../controllers');
+const { UserService } = require('../services');
 
-// router.post('/signup', [AuthValidator.createParentValidator], AuthController.create(AuthServices, asynError));
-// router.post('/login', [AuthValidator.createParentValidator], AuthController.login(AuthServices, asynError, WitlabError));
+const asyncError = require('../errors/asyncError');
+
+router.post('/signup', [AuthValidator.signup], UserController.create(UserService, asyncError));
+router.post('/login', [AuthValidator.login], UserController.login(UserService, asyncError));
 
 module.exports = router;

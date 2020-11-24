@@ -26,6 +26,12 @@ module.exports = {
     return jwt.sign(newUser, config.SECRET_KEY);
   },
 
+  find: () => User.find()
+    .then((users) => users)
+    .catch((err) => {
+      throw new BackendError(err);
+    }),
+
   findById: (id) => User.findOne({ _id: id, isActive: true })
     .then((parent) => parent)
     .catch((err) => {

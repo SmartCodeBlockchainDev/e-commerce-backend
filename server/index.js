@@ -1,7 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 const { errors } = require('celebrate');
+
 const config = require('../config');
 const BackendError = require('../errors/BackendError');
 const errorMiddleware = require('../errors/errorMiddleware');
@@ -41,6 +43,10 @@ app.use(cors());
 
 app.get('/', (req, res) => {
     res.send('Server on!');
+});
+
+app.get('/docs', function(_, res) {
+  res.sendFile(path.join(__dirname + '/docs.html'));
 });
 
 app.use('/api/v1', require('../routes'));
