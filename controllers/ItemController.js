@@ -8,7 +8,7 @@ module.exports = {
       return res.status(200).json(results);
     }),
     retriveItem:(service, asyncError) => asyncError(async (req, res) => {
-        const item = await service.getItemById(req.params.id);
+        const item = await service.getItemById(req.params.idItem);
         return res.status(200).json(item);
     }), 
   };
