@@ -4,7 +4,7 @@ const config = require('../config');
 module.exports = (req, res, next) => {
   let token = req.headers.authorization;
   if (token) {
-    if (token.startsWith('Bearer ')) {
+    if (token.startsWith('JWT ')) {
       token = token.slice(7, token.length);
     } else {
       return res.status(403).send({ message: 'Auth token dont init with the word' });
