@@ -3,7 +3,8 @@ module.exports = {
        let build = {};
       if(req.query.sku) build.sku = req.query.sku
       if(req.query.category) build.category = req.query.category
-      if(req.query.name) build.name = {'$regex':`%${req.query.name}%`}
+      if(req.query.name) build.product_name = {"$regex": req.query.name, "$options":"i"}
+      console.log(build)
       const results = await service.queryGetItems(build)
       return res.status(200).json(results);
     }),
