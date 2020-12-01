@@ -5,7 +5,8 @@ module.exports = (req, res, next) => {
   let token = req.headers.authorization;
   if (token) {
     if (token.startsWith('JWT ')) {
-      token = token.slice(7, token.length);
+      token = token.slice(4, token.length);
+      console.log(token);
     } else {
       return res.status(403).send({ message: 'Auth token dont init with the word' });
     }
