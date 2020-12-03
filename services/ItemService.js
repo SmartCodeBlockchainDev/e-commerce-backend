@@ -1,6 +1,4 @@
-const jwt = require('jsonwebtoken');
 const { Item } = require('../models');
-const config = require('../config');
 const BackendError = require('../errors/BackendError');
 
 module.exports = {
@@ -23,6 +21,10 @@ module.exports = {
     queryGetItems: query => Item.find({...query})
                                 .then(items =>items)
                                 .catch(err => { throw new BackendError(err); }),
+    createItem: item => Item.create(item)
+                            .then(item => item)
+                            .catch(err => { throw new BackendError(err); }),
+                            
                                     
     
 
