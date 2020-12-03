@@ -9,3 +9,5 @@ const permit = require('../utils/permission');
 
 
 router.post('/item', permit('ADMIN'), ItemController.create(ItemService, asyncError));
+
+module.exports = router;
