@@ -1,5 +1,5 @@
 const { celebrate, Joi } = require('celebrate');
-const { ENUM_GENDER } = require('../utils/const');
+const { ENUM_GENDER, ENUM_ROLE } = require('../utils/const');
 
 module.exports = {
   signup: celebrate({
@@ -10,6 +10,7 @@ module.exports = {
       password: Joi.string().required(),
       birth_date: Joi.date(),
       gender: Joi.string().valid(ENUM_GENDER),
+      role: Joi.string().valid(ENUM_ROLE),
     }),
   }),
   login: celebrate({
