@@ -9,6 +9,7 @@ module.exports = {
       email: Joi.string(),
       password: Joi.string(),
       birth_date: Joi.date(),
+      profile_img: Joi.string(),
       gender: Joi.string().valid(ENUM_GENDER),
     }),
   }),
